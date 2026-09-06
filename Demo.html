@@ -1,0 +1,269 @@
+﻿<h1>Course Introduction + Software &amp; System Setup</h1>
+<blockquote>
+<p>Refer to the <strong>Course Outline</strong> for evaluations and course overview.</p>
+</blockquote>
+<h2>Software/Accounts</h2>
+<p>Before we write any JavaScript, we need to make sure everyone has the same basic working environment. These tools are part of the course workflow, not just optional extras.</p>
+<blockquote>
+<p><em><strong>Note:</strong> One-Time Setup</em></p>
+<p>Most of this setup only needs to be done once on your computer. If a tool is already installed and the version command works, you do not need to reinstall it.</p>
+<p>When you install a new command-line tool, close and reopen your terminal before checking the version. Terminals often only learn about newly installed programs when they start.</p>
+</blockquote>
+<h3>GitHub Account Setup</h3>
+<p>You need a GitHub account for this course. GitHub is where we will store, submit, and review code through the term.</p>
+<p>&lt;Steps&gt;</p>
+<ol>
+<li>Go to &lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot;&gt;GitHub&lt;/a&gt; and create an account if you do not already have one.</li>
+<li>Turn on two-factor authentication for your GitHub account.</li>
+<li>Add a clear profile name so your instructor can connect your GitHub activity to you.</li>
+<li>Find your GitHub-provided private email address if you do not want your personal email shown in commit history.
+&lt;/Steps&gt;</li>
+</ol>
+<p>GitHub's private email addresses usually follow this kind of pattern.</p>
+<pre><code class="language-txt">username@users.noreply.github.com
+</code></pre>
+<blockquote>
+<p><em><strong>Tip:</strong> Keep Your Account Accessible</em></p>
+<p>Use a password manager or another reliable system for your GitHub credentials and two-factor authentication codes.</p>
+<p>Losing access to GitHub during the course can block you from submitting work.</p>
+</blockquote>
+<h3>One-Time Git Setup</h3>
+<p><code>git</code> needs to know what name and email address to attach to your commits. This is a one-time setup on your computer.</p>
+<pre><code class="language-ps">git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;username@users.noreply.github.com&quot;
+</code></pre>
+<p>Use your <strong>human name</strong> for <code>user.name</code>. For <code>user.email</code>, use either your normal email address or the private GitHub email address from your GitHub account settings.</p>
+<p>It is also useful to set the default branch name to <code>main</code>.</p>
+<pre><code class="language-ps">git config --global init.defaultBranch main
+</code></pre>
+<p>You can check your settings with the following commands.</p>
+<pre><code class="language-ps">git config --global user.name
+git config --global user.email
+git config --global init.defaultBranch
+</code></pre>
+<blockquote>
+<p><em><strong>Note:</strong> What Git Records</em></p>
+<p>Every commit records an author name and email address. That is why we configure these values before we start making course commits.</p>
+<p>This does not log you in to GitHub. It only tells <code>git</code> what identity to write into your local commit history.</p>
+</blockquote>
+<h3>Software Installation/Configuration</h3>
+<p>Install the following tools. The order below is a practical order for most students, especially on Windows.</p>
+<ol>
+<li>
+<p>Install &lt;a href=&quot;https://code.visualstudio.com/download&quot; target=&quot;_blank&quot;&gt;Visual Studio Code&lt;/a&gt;.</p>
+<p>VS Code is our main editor. On Windows, the User Installer is fine. During installation, it is useful to enable the &quot;Open with Code&quot; options if they are offered.</p>
+</li>
+<li>
+<p>Install &lt;a href=&quot;https://git-scm.com/downloads&quot; target=&quot;_blank&quot;&gt;Git&lt;/a&gt;.</p>
+<p>On Windows, use Git for Windows from the official Git site. You can accept the default setup choices. If the installer asks about the default editor, VS Code is a reasonable choice.</p>
+</li>
+<li>
+<p>Install &lt;a href=&quot;https://nodejs.org/en/download&quot; target=&quot;_blank&quot;&gt;Node.js LTS&lt;/a&gt;.</p>
+<p>Choose the LTS version, not the Current version. Node lets us run JavaScript outside the browser, and it also installs <code>npm</code>.</p>
+</li>
+<li>
+<p>Install &lt;a href=&quot;https://pnpm.io/installation&quot; target=&quot;_blank&quot;&gt;pnpm&lt;/a&gt;.</p>
+<p>💫 After Node is installed, the simplest course setup on Windows is usually:</p>
+<pre><code class="language-ps">npm install -g pnpm@latest-11
+</code></pre>
+</li>
+<li>
+<p>Install &lt;a href=&quot;https://cli.github.com/&quot; target=&quot;_blank&quot;&gt;GitHub CLI&lt;/a&gt;.</p>
+<p>GitHub CLI gives us the <code>gh</code> command, which helps connect local Git work with GitHub.</p>
+</li>
+</ol>
+<p>After installation, close all terminal windows, open a new terminal, and check the versions.</p>
+<pre><code class="language-ps">code --version
+git --version
+node --version
+npm --version
+pnpm --version
+gh --version
+</code></pre>
+<p>If a command prints a version number, the tool is available from your terminal. If a command is not recognized, restart the terminal first. If it still fails, the tool may not be installed correctly or may not be on your system path.</p>
+<blockquote>
+<p><em><strong>Caution:</strong> PowerShell Script Policy</em></p>
+<p>On some Windows computers, <code>npm</code> or <code>pnpm</code> may be blocked by PowerShell's script execution policy.</p>
+<p>If you see a message about scripts being disabled, ask your instructor before changing security settings. The common course fix is:</p>
+<pre><code class="language-ps">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+</code></pre>
+</blockquote>
+<p>Once GitHub CLI is installed, authenticate it with GitHub.</p>
+<pre><code class="language-ps">gh auth login
+gh auth status
+</code></pre>
+<p>For the login prompts, use GitHub.com, HTTPS, and browser-based authentication unless your instructor gives different directions.</p>
+<blockquote>
+<p><em><strong>Note:</strong> Authentication vs. Identity</em></p>
+<p><code>git config --global user.name</code> and <code>git config --global user.email</code> set the identity written into commits.</p>
+<p><code>gh auth login</code> signs the GitHub CLI in to your GitHub account.</p>
+<p>They are related, but they are not the same setup step.</p>
+</blockquote>
+<hr>
+<h2>Understanding CLI Tools</h2>
+<h3>Built-In Tools</h3>
+<p>Your terminal has several commands built in. These commands let you move around your file system, look at what is inside folders, and create new folders.</p>
+<blockquote>
+<p><em><strong>Note:</strong> Terminal Location</em></p>
+<p>The terminal always has a current location. Commands such as <code>cd</code>, <code>ls</code>, <code>dir</code>, and <code>mkdir</code> work relative to that current location unless you give them a fuller path.</p>
+<p>If a command does something unexpected, check where your terminal is first.</p>
+</blockquote>
+<h3><code>cd</code> - Change Directory</h3>
+<p>Use <code>cd</code> to move the terminal into another folder.</p>
+<pre><code class="language-ps">cd C:/
+</code></pre>
+<pre><code class="language-ps">cd C:/GH/
+</code></pre>
+<pre><code class="language-ps">cd C:/GH/SDEV-1150/
+</code></pre>
+<p>You can also move up one folder with <code>..</code>.</p>
+<pre><code class="language-ps">cd ..
+</code></pre>
+<blockquote>
+<p><em><strong>Tip:</strong> Use Tab Completion</em></p>
+<p>Type the first few letters of a folder name and press <code>Tab</code>.</p>
+<p>The terminal can often complete the folder name for you. This helps avoid spelling mistakes in longer paths.</p>
+</blockquote>
+<h3><code>ls</code> and <code>dir</code> - List Folder Contents</h3>
+<p>Use <code>ls</code> or <code>dir</code> to list the files and folders in the terminal's current location.</p>
+<pre><code class="language-ps">ls
+</code></pre>
+<pre><code class="language-ps">dir
+</code></pre>
+<p>In PowerShell, both commands are available. You will often see <code>ls</code> in examples because it is short and common in many command-line environments. You may also see <code>dir</code> in Windows-focused instructions.</p>
+<blockquote>
+<p><em><strong>Note:</strong> Look Before You Move</em></p>
+<p>A useful habit is to run <code>ls</code> before using <code>cd</code>.</p>
+<p>First list what is in the current folder, then move into the folder you want.</p>
+</blockquote>
+<h3><code>mkdir</code> - Make Directory</h3>
+<p>Use <code>mkdir</code> to create a new folder.</p>
+<pre><code class="language-ps">mkdir C:/GH/
+</code></pre>
+<pre><code class="language-ps">mkdir C:/GH/SDEV-1150/
+</code></pre>
+<pre><code class="language-ps">mkdir C:/GH/your-github-username/
+</code></pre>
+<p>After creating folders, use <code>ls</code> to confirm they exist.</p>
+<pre><code class="language-ps">ls C:/GH/
+</code></pre>
+<blockquote>
+<p><em><strong>Caution:</strong> Folder Names Matter</em></p>
+<p>Keep folder names simple. Avoid spaces and special characters in course-work paths when possible.</p>
+<p>Simple folder names make terminal commands easier to type and easier to troubleshoot.</p>
+</blockquote>
+<h3>Git Workspace Folders</h3>
+<p>Create a dedicated folder for your Git work. For this course, use the following pattern on Windows.</p>
+<pre><code class="language-txt">C:/GH/
+</code></pre>
+<p>Inside that folder, create a folder for this course.</p>
+<pre><code class="language-txt">C:/GH/SDEV-1150/
+</code></pre>
+<p>You should also create a folder for repositories that belong directly to your GitHub account. Use your GitHub username for this folder.</p>
+<pre><code class="language-txt">C:/GH/your-github-username/
+</code></pre>
+<p>For example, my personal GitHub repositories live under this kind of folder.</p>
+<pre><code class="language-txt">C:/GH/stewdent/
+</code></pre>
+<blockquote>
+<p><em><strong>Caution:</strong> Avoid OneDrive Folders</em></p>
+<p>Do not put course repositories in your Documents folder or on your Desktop if those folders are managed by Microsoft OneDrive.</p>
+<p>OneDrive can sometimes lock files inside a Git repository, which can interfere with normal Git commands. It can also make it less clear where your backup or remote copy lives.</p>
+<p>For this course, GitHub is the remote/off-computer storage for your Git repositories. OneDrive is not part of the course Git workflow.</p>
+</blockquote>
+<blockquote>
+<p><em><strong>Tip:</strong> Keep Repositories Organized</em></p>
+<p>A consistent folder structure saves time later.</p>
+<p>When your instructor asks you to open a repo, clone a starter kit, or find a course project, you should know where that work belongs on your computer.</p>
+</blockquote>
+<h2>Intro to VS Code</h2>
+<p>VS Code is the main workspace for this course. We will use it to edit files, run terminal commands, preview Markdown, and work with Git.</p>
+<h3>Open a Folder</h3>
+<p>Start VS Code by opening a folder, not just a single file. Most programming projects are made of several files that work together.</p>
+<ol>
+<li>Create or choose a folder for exploring VS Code; place it under the folder you set up for the repos under you GitHub account (e.g.: <code>C:\GH\stewdent\xplore-vs-code</code>).</li>
+<li>Open VS Code.</li>
+<li>Use <strong>File &gt; Open Folder...</strong> and select that folder.</li>
+<li>Notice the Explorer panel on the left. This is where you will see files and folders for the current project.</li>
+</ol>
+<blockquote>
+<p><em><strong>Tip:</strong> Folder First</em></p>
+<p>A lot of VS Code features work best when a folder is open: terminal location, Git tracking, search, extensions, and project settings.</p>
+</blockquote>
+<h3>Use the Integrated Terminal</h3>
+<p>VS Code has a built-in terminal. This lets us stay in the editor while running commands.</p>
+<pre><code class="language-ps">Ctrl + `
+</code></pre>
+<p>The backtick key is usually near the top-left of the keyboard. The same shortcut opens and closes the terminal panel.</p>
+<p>Try a simple version check from inside the VS Code terminal.</p>
+<pre><code class="language-ps">node --version
+</code></pre>
+<p>If the command works in Windows Terminal but not in VS Code, close and reopen VS Code. It may need to restart before it sees newly installed tools.</p>
+<h3>Install Recommended Extensions</h3>
+<p>VS Code has useful Markdown support built in, but the following extensions are helpful for course notes and workbook files.</p>
+<ol>
+<li>Open the Extensions view in VS Code.</li>
+<li>Search for and install &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one&quot; target=&quot;_blank&quot;&gt;Markdown All in One&lt;/a&gt;.</li>
+<li>Search for and install &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf&quot; target=&quot;_blank&quot;&gt;Markdown PDF&lt;/a&gt;.</li>
+<li>Search for and install &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid&quot; target=&quot;_blank&quot;&gt;Markdown Preview Mermaid Support&lt;/a&gt;.</li>
+</ol>
+<blockquote>
+<p><em><strong>Caution:</strong> Do Not Install Everything</em></p>
+<p>Extensions are useful, but too many extensions can make VS Code harder to understand and troubleshoot.</p>
+<p>Start with the recommended extensions. Add more only when you have a clear reason.</p>
+</blockquote>
+<h3>Preview Markdown</h3>
+<p>Many course files use Markdown. Markdown lets us write plain text that can be rendered as headings, lists, links, code blocks, and other document structures.</p>
+<p>Create a <code>README.md</code> file and use the Markdown preview command. Here's some sample text to use.</p>
+<pre><code class="language-md"># My First Course README
+
+This folder contains my practice work for SDEV-1150.
+
+## What I Am Practicing
+
+- Writing Markdown files
+- Using VS Code
+- Running commands in the terminal
+- Making small Git commits
+
+## Useful Links
+
+- [MDN JavaScript Guide](https://developer.mozilla.org/docs/Web/JavaScript/Guide)
+- [VS Code Documentation](https://code.visualstudio.com/docs)
+
+## Notes
+
+Today I learned that Markdown uses plain text symbols to describe document structure.
+</code></pre>
+<pre><code class="language-ps">Ctrl + Shift + V
+</code></pre>
+<p>You can also open the Command Palette with <code>Ctrl + Shift + P</code> and search for <code>Markdown: Open Preview</code>.</p>
+<h3>Use Source Control</h3>
+<p>VS Code has a Source Control view for Git. You can open it from the left sidebar or with this shortcut.</p>
+<pre><code class="language-ps">Ctrl + Shift + G
+</code></pre>
+<p>In this course, you will still learn the terminal commands for Git because the commands make the workflow explicit.</p>
+<pre><code class="language-ps">git status
+git add .
+git commit -m &quot;Describe the change&quot;
+</code></pre>
+<blockquote>
+<p><em><strong>Note:</strong> Frequent Small Commits</em></p>
+<p>You will hear this often: commit small changes frequently.</p>
+<p>Small commits make it easier to see your progress, recover from mistakes, and explain what changed.</p>
+</blockquote>
+<h2>Your Student Workbook</h2>
+<p>Ensure you have obtained your <strong>Student Workbook</strong> in this first class. You will be using it in every class and in completing your homework for this course.</p>
+<hr>
+<h2>Conclusion</h2>
+<p>There is a lot of <em>minutiae</em> for you to pick up. Little details, such as single-line and multi-line comments, proper &quot;terminology&quot; for things in JavaScript, and a host of other little details – all of these are things that you will have to pick up as you move through this course.</p>
+<p>You are also expected to <strong>read</strong> about JavaScript. That's another place where you will pick up all the small pieces of information you need to know. Through continual &quot;hands-on&quot; work with JavaScript, you will do <em>your part</em> on polishing your understanding!</p>
+<h2>What is a Computer Program?</h2>
+<blockquote>
+<p><em>A computer program is a set of <strong>instructions</strong> for manipulating <strong>information</strong>.</em></p>
+</blockquote>
+<blockquote>
+<p><em><strong>Note:</strong> So many resources</em></p>
+<p>There are several paths you can take to learn JavaScript. &lt;a href=&quot;https://developer.mozilla.org/docs/Web/JavaScript/Guide/Introduction#where_to_find_javascript_information&quot; target=&quot;_blank&quot;&gt;Where do you find JavaScript information?&lt;/a&gt; The best place to start is the <strong>Mozilla Developer Network</strong>, or <strong>mdn</strong>, website. Take some time to read their core page on &lt;a href=&quot;https://developer.mozilla.org/docs/Web/JavaScript&quot; target=&quot;_blank&quot;&gt;<strong>JavaScript</strong>&lt;/a&gt;.</p>
+</blockquote>
+<p>JavaScript has eight &lt;a href=&quot;https://developer.mozilla.org/docs/Web/JavaScript/Guide/Grammar_and_types#data_structures_and_types&quot; target=&quot;_blank&quot;&gt;data types&lt;/a&gt;, seven of which are &lt;a href=&quot;https://developer.mozilla.org/docs/Glossary/Primitive&quot; target=&quot;_blank&quot;&gt;primitives&lt;/a&gt; and the eighth being the fundamental &lt;a href=&quot;https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object&quot; target=&quot;_blank&quot;&gt;object&lt;/a&gt; data type.</p>

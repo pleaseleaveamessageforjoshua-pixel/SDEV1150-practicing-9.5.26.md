@@ -1,0 +1,575 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>PlanningCalendar-Fall2026.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="planning-calendar---fall-sep-2026">Planning Calendar - Fall (Sep 2026)</h1>
+<p>For key dates accross all of NAIT, see the <a href="https://www.nait.ca/nait/admissions/academic-schedule">Academic Schedule</a> on NAIT's website.</p>
+<blockquote>
+<p><em><strong>NOTE:</strong> This is a draft planning calendar for this course; all dates are subject to change. See the <a href="#fall-2026-term">Fall Term</a> for planned due-dates and cut-off dates related to evaluation items.</em></p>
+</blockquote>
+<h2 id="current-draft-planning-calendar">Current <strong>Draft</strong> Planning Calendar</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Week #</th>
+<th>Day 1</th>
+<th>Day 2</th>
+<th>Evaluation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>#01: Course Introduction + Software &amp; System Setup</td>
+<td>#02: JavaScript Intro + Version Control</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>#03: Primitive Types vs. Simple Objects</td>
+<td>#04: Arrays as a Structure</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>#05: Understanding Functions</td>
+<td>#06: Creating and Using Objects</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>#07: If-Else - Flow Control Intro</td>
+<td>#08: More If-Else</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>#09: JavaScript Modules - Import, Export, and JSDocs</td>
+<td>#10: Node Projects for Frontend Development<br /> #11: JavaScript and HTML - Intro</td>
+<td>Quiz 1 cutoff: JavaScript foundations</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td><em>Buffer Day:</em> in case classes run longer</td>
+<td><em>Exercise/Catch-up:</em> Complete Assignment 1</td>
+<td>Assignment 1 due</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td>#12: Repetition - Flow Control Intro</td>
+<td>#13: Looping with Arrays</td>
+<td>begin Assignment 2</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>#14: DOM Manipulation</td>
+<td>#15: Event Listeners</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">9</td>
+<td>#16: Form Event Handling</td>
+<td>#17: Browser Debugging Tools</td>
+<td>Quiz 2 cutoff: DOM, events, and forms</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td><em>Exercise/Catch-up:</em> DOM/events/forms/debugging</td>
+<td>#18: HTTP and Server-Side Endpoints</td>
+<td>Assignment 2 due; begin Assignment 3</td>
+</tr>
+<tr>
+<td style="text-align:right">11</td>
+<td>#19: Fetch API Calls</td>
+<td>#20: Consuming REST API Endpoints</td>
+<td>Quiz 3 cutoff: client-server APIs</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td><em>Exercise/Catch-up:</em> client-server APIs</td>
+<td>#21: Intro to Custom Elements (Web Components); begin Assignment 4</td>
+<td>Assignment 3 due</td>
+</tr>
+<tr>
+<td style="text-align:right">13</td>
+<td>#22: Styling Custom Elements</td>
+<td>#23: Custom Element Lifecycle and State Management</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">14</td>
+<td>#24: Unit Testing Fundamentals</td>
+<td>#25: Testing Custom Elements</td>
+<td>Quiz 4 cutoff: web components and testing</td>
+</tr>
+<tr>
+<td style="text-align:right">15</td>
+<td><em>Excercise/Catch-up:</em> TDD/Custom Elements</td>
+<td>#26: Introduction to TypeScript</td>
+<td>Assignment 4 due</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="evaluation-due-dates">Evaluation Due Dates</h2>
+<p><em>Based on the <a href="https://www.nait.ca/nait/admissions/academic-schedule">NAIT Academic Schedule</a></em></p>
+<h3 id="fall-2026-term">Fall 2026 Term</h3>
+<p>Term 1261: <strong>September 1</strong> (Tue) to <strong>December 16</strong> (Wed), 2026</p>
+<p>NAIT Closed: Sep 7, Sep 30, Oct 12, Nov 11-13</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Mon-Fri</th>
+<th style="text-align:right">Week</th>
+<th>Evaluation Due Dates/Cutoffs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">Sep 1-4</td>
+<td style="text-align:right">1</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">7-11</td>
+<td style="text-align:right">2</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">14-18</td>
+<td style="text-align:right">3</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">21-25</td>
+<td style="text-align:right">4</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">28-Oct 2</td>
+<td style="text-align:right">5</td>
+<td><strong>Oct 2</strong> Quiz 1 cutoff: JavaScript foundations</td>
+</tr>
+<tr>
+<td style="text-align:right">5-9</td>
+<td style="text-align:right">6</td>
+<td><strong>Oct 9</strong> Assignment 1 due</td>
+</tr>
+<tr>
+<td style="text-align:right">12-16</td>
+<td style="text-align:right">7</td>
+<td>begin Assignment 2</td>
+</tr>
+<tr>
+<td style="text-align:right">19-23</td>
+<td style="text-align:right">8</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">26-30</td>
+<td style="text-align:right">9</td>
+<td><strong>Oct 30</strong> Quiz 2 cutoff: DOM, events, and forms</td>
+</tr>
+<tr>
+<td style="text-align:right">Nov 2-6</td>
+<td style="text-align:right">10</td>
+<td><strong>Nov 10</strong> Assignment 2 due; begin Assignment 3</td>
+</tr>
+<tr>
+<td style="text-align:right">9-13</td>
+<td style="text-align:right">11</td>
+<td><strong>Nov 13</strong> Quiz 3 cutoff: client-server APIs</td>
+</tr>
+<tr>
+<td style="text-align:right">16-20</td>
+<td style="text-align:right">12</td>
+<td><strong>Nov 20</strong> Assignment 3 due</td>
+</tr>
+<tr>
+<td style="text-align:right">23-27</td>
+<td style="text-align:right">13</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">30-Dec 4</td>
+<td style="text-align:right">14</td>
+<td><strong>Dec 4</strong> Quiz 4 cutoff: web components and testing</td>
+</tr>
+<tr>
+<td style="text-align:right">7-11</td>
+<td style="text-align:right">15</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:right">14-16</td>
+<td style="text-align:right">16</td>
+<td><strong>Dec 16</strong> Assignment 4 due</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
